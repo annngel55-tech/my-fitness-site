@@ -731,3 +731,34 @@ nav {
     h1 { font-size: 1.8rem; }
     .section-title { font-size: 1.5rem; }
 }
+@media (max-width: 768px) {
+    /* 1. Оправяме застъпването */
+    section {
+        padding: 100px 20px !important;
+        height: auto !important;
+        min-height: 100vh;
+        display: block !important; /* Подрежда елементите вертикално */
+    }
+
+    /* 2. Скриваме счупеното меню и оставяме място за логото */
+    header nav ul {
+        display: none; 
+    }
+
+    /* 3. Оправяме картите (Цени и Упражнения) */
+    .pricing-grid, .exercises-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px;
+    }
+
+    .price-card, .card {
+        width: 100% !important;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    /* 4. Намаляваме заглавията */
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.6rem !important; }
+}
