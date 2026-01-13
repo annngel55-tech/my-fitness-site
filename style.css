@@ -731,42 +731,43 @@ nav {
     h1 { font-size: 1.8rem; }
     .section-title { font-size: 1.5rem; }
 }
-/* СТИЛ ЗА ХАМБУРГЕР МЕНЮ */
-@media screen and (max-width: 768px) {
-    .nav-list {
-        display: none; /* Скриваме го първоначално */
+/* БАЗОВ СТИЛ (ЗА КОМПЮТЪР) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ff6600;
+}
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 20px; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: bold; }
+.menu-btn { display: none; cursor: pointer; } /* Скрито на компютър */
+.menu-btn .bar { display: block; width: 25px; height: 3px; background: #fff; margin: 5px; }
+
+/* МОБИЛЕН СТИЛ (ЗА ТЕЛЕФОН) */
+@media (max-width: 768px) {
+    .menu-btn { display: block; } /* Показваме чертичките */
+
+    .nav-links {
+        display: none; /* Скриваме целия списък */
         flex-direction: column;
         width: 100%;
+        background: #000;
         position: absolute;
         top: 60px;
         left: 0;
-        background-color: #000;
-        border-bottom: 2px solid #ff6600;
+        text-align: center;
     }
 
-    .nav-list.active {
-        display: flex; /* Показва се само когато е активно */
-    }
+    .nav-links.active { display: flex; } /* Показва се при цъкане */
 
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-    }
-
-    .menu-toggle .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: #fff;
-        transition: all 0.3s ease-in-out;
-    }
-
-    header nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
+    .nav-links li { margin: 15px 0; }
+    .navbar { padding: 10px 20px; }
 }
 
