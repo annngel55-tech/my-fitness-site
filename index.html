@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGteam | Фитнес тренировки</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -14,9 +14,11 @@
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
+
             <div class="logo">
                 <img src="logo-new.png" alt="SG TEAM">
             </div>
+
             <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Начало</a></li>
                 <li><a href="#about">За нас</a></li>
@@ -31,16 +33,45 @@
 
     <div id="main-site-content">
         <section id="home" class="hero">
-            <div class="hero-logo"><img src="logo-new.png" alt="Logo"></div>
-            <p class="hero-slogan">СТАНИ НАЙ-ДОБРАТА ВЕРСИЯ НА СЕБЕ СИ!</p>
-            <a href="#subscriptions" class="cta-btn">АБОНИРАЙ СЕ СЕГА</a>
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="logo-new.png" alt="SGteam Logo">
+                </div>
+                <div class="hero-bottom">
+                    <p class="hero-slogan">СТАНИ НАЙ-ДОБРАТА ВЕРСИЯ НА СЕБЕ СИ!</p>
+                    <a href="#subscriptions" class="cta-btn hero-btn">АБОНИРАЙ СЕ СЕГА</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="trainer.png" alt="SGteam Trainer">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Кои сме ние?</h2>
+                    <p>Добре дошли в <strong>SGteam</strong> – мястото, където шампионите се създават.</p>
+                    <ul class="achievements" style="list-style: none; margin-top: 20px;">
+                        <li>🏆 Професионален атлет - IFBB Professional League</li>
+                        <li>🏅 Медалист от състезанието FLEX Weekend</li>
+                        <li>💪 Сертифициран треньор от NPC Worldwide</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="results">
             <h2 class="section-title">Реални <span>Трансформации</span></h2>
             <div class="results-grid">
-                <div class="result-card"><img src="collage1.png" alt="T1"><h3>Трансформация #1</h3></div>
-                <div class="result-card"><img src="collage2.png" alt="T2"><h3>Трансформация #2</h3></div>
+                <div class="result-card">
+                    <img src="collage1.png" alt="Трансформация 1">
+                    <div class="result-details"><h3>Трансформация #1</h3></div>
+                </div>
+                <div class="result-card">
+                    <img src="collage2.png" alt="Трансформация 2">
+                    <div class="result-details"><h3>Трансформация #2</h3></div>
+                </div>
             </div>
         </section>
 
@@ -50,27 +81,57 @@
                 <div class="subscription-card">
                     <h3>1 МЕСЕЦ</h3>
                     <div class="price">360<span>лв</span></div>
-                    <ul><li>Индивидуален план</li><li>Хранителен режим</li></ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-month')">Избери</a>
+                    <ul>
+                        <li>Персонален план</li>
+                        <li>Хранителен режим</li>
+                        <li>24/7 поддръжка</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-month')">Избери План</a>
                 </div>
                 <div class="subscription-card featured">
                     <div class="badge">НАЙ-ПОПУЛЯРЕН</div>
                     <h3>3 МЕСЕЦА</h3>
                     <div class="price">970<span>лв</span></div>
-                    <ul><li>Всичко от 1 месец</li><li>Видео връзка</li></ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери</a>
+                    <ul>
+                        <li>Всичко от 1 месец</li>
+                        <li>Видео консултации</li>
+                        <li>Проследяване на резултати</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери План</a>
                 </div>
                 <div class="subscription-card">
                     <h3>6 МЕСЕЦА</h3>
                     <div class="price">1800<span>лв</span></div>
-                    <ul><li>Всичко от 3 месеца</li><li>Приоритетна поддръжка</li></ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('6-months')">Избери</a>
+                    <ul>
+                        <li>Всичко от 3 месеца</li>
+                        <li>Приоритетна комуникация</li>
+                        <li>Професионални насоки</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('6-months')">Избери План</a>
                 </div>
                 <div class="subscription-card">
                     <h3>1 ГОДИНА</h3>
                     <div class="price">3200<span>лв</span></div>
-                    <ul><li>Пълна трансформация</li><li>Най-добра цена</li></ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-year')">Избери</a>
+                    <ul>
+                        <li>Пълна трансформация</li>
+                        <li>Индивидуални сесии</li>
+                        <li>Най-добра цена за месец</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-year')">Избери План</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="exercises">
+            <h2 class="section-title">Моите <span>Упражнения</span></h2>
+            <div class="exercises-grid">
+                <div class="card">
+                    <div class="video-placeholder" style="height: 200px; background: #222; display:flex; align-items:center; justify-content:center; margin-bottom: 15px;">ВИДЕО</div>
+                    <h3>Клекове</h3>
+                </div>
+                <div class="card">
+                    <div class="video-placeholder" style="height: 200px; background: #222; display:flex; align-items:center; justify-content:center; margin-bottom: 15px;">ВИДЕО</div>
+                    <h3>Мъртва тяга</h3>
                 </div>
             </div>
         </section>
@@ -79,8 +140,10 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h2 class="section-title">Свържи се с <span>Мен</span></h2>
-                    <a href="tel:+359895702336" class="contact-card"><i class="fas fa-phone"></i> +359 89 570 2336</a>
-                    <a href="https://www.instagram.com/_stefan.georgiev_/" class="contact-card"><i class="fab fa-instagram"></i> Instagram</a>
+                    <div class="contact-links">
+                        <a href="tel:+359895702336" class="contact-card"><i class="fas fa-phone"></i> +359 89 570 2336</a>
+                        <a href="https://www.instagram.com/_stefan.georgiev_/" target="_blank" class="contact-card"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
                 </div>
                 <div class="contact-form-wrapper">
                     <form action="https://formspree.io/f/xykzrzzl" method="POST">
@@ -124,7 +187,7 @@
 
                 <div style="margin-top: 30px; background: #1a1a1a; padding: 20px; border-radius: 10px; text-align: left; border-left: 4px solid #ff6600;">
                     <h4 style="color: #ff6600; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> Бележка от треньора:</h4>
-                    <p style="font-size: 14px; color: #ccc;">Следи графика си и не забравяй да изпращаш седмичните си отчети всяка неделя вечер!</p>
+                    <p style="font-size: 14px; color: #ccc;">Твоят прогрес се следи! Продължавай с тренировките по план и не забравяй да следиш храненето си.</p>
                 </div>
                 
                 <button onclick="logout()" class="cta-btn" style="margin-top: 40px; background: #333; padding: 10px 30px; font-size: 12px;">ИЗХОД ОТ ПРОФИЛА</button>
@@ -132,7 +195,12 @@
         </div>
     </section>
 
+    <footer style="text-align: center; padding: 30px; background: #000; color: #555;">
+        © 2024 Stefan Georgiev. Всички права запазени.
+    </footer>
+
     <script>
+        // Меню логика
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         menuBtn.onclick = () => navList.classList.toggle('active');
@@ -141,18 +209,20 @@
             link.onclick = () => navList.classList.remove('active');
         });
 
-        function selectPlan(val) { document.getElementById('plan-select').value = val; }
+        function selectPlan(val) { 
+            document.getElementById('plan-select').value = val; 
+        }
 
-        // --- СИСТЕМА ЗА ВХОД (ВАРИАНТ 2) ---
+        // --- ЛОГИКА ЗА ВХОД В ПРОФИЛ ---
         function loginSystem() {
             const password = prompt("Въведете вашия клиентски код за достъп:");
             
             if (password === "stefan2024") {
                 showProfile("Стефан Георгиев", "1 ГОДИНА", "01.01.2024", "01.01.2025");
             } else if (password === "client123") {
-                showProfile("Иван Иванов", "3 МЕСЕЦА", "10.01.2024", "10.04.2024");
+                showProfile("Иван Иванов", "3 МЕСЕЦА", "15.01.2024", "15.04.2024");
             } else if (password !== null) {
-                alert("Невалиден код! Моля, свържете се със SGteam.");
+                alert("Невалиден код! Моля, свържете се със SGteam за достъп.");
             }
         }
 
