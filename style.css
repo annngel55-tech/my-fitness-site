@@ -1,4 +1,12 @@
-/* 1. Глобални настройки за плавно движение и скрол */
+/* ============================================================
+   1. ОСНОВНИ НАСТРОЙКИ (RESET & GLOBAL)
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -7,32 +15,13 @@ body {
     background-color: #000000;
     color: #ffffff;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden; /* Спира хоризонталния скрол, но позволява вертикалния */
+    overflow-x: hidden;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* 2. Настройка на секциите - поправя скриването на Резултати */
-section {
-    min-height: 100vh; /* Позволява на секцията да се разтяга, ако съдържанието е много */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 100px 20px; /* Отстояние, за да не се застъпват под менюто */
-    scroll-margin-top: 70px; /* Точен стоп при цъкане от менюто */
-}
-
-/* 3. Фиксирано меню най-отгоре */
+/* ============================================================
+   2. НАВИГАЦИЯ (HEADER)
+   ============================================================ */
 header {
     position: fixed;
     top: 0;
@@ -41,21 +30,26 @@ header {
     z-index: 10000;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
-    padding: 10px 0;
     border-bottom: 1px solid #333;
+    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
 }
 
 .nav-links {
     display: flex;
-    justify-content: center;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -63,291 +57,74 @@ header {
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: #ff6600;
 }
-/* Hero Секция */
+
+.logo img {
+    height: 55px;
+    width: auto;
+}
+
+/* ============================================================
+   3. HERO СЕКЦИЯ (НАЧАЛО)
+   ============================================================ */
 .hero {
     height: 100vh;
     width: 100%;
-    /* Използваме твоето име на файла: hero-bg.png */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                 url('hero-bg.png') center center / cover no-repeat;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
-}
-
-/* Премахваме стария стил за .hero h1, ако е останал */
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -60px; /* Повдигаме всичко още малко нагоре */
+    padding: 0 20px;
 }
 
 .hero-logo img {
-    width: 350px; /* Логото ти остава водещ елемент */
+    width: 350px;
+    max-width: 90%;
     height: auto;
     filter: drop-shadow(0 0 20px rgba(255, 102, 0, 0.4));
 }
 
-.hero-bottom {
-    margin-top: -10px; /* Приближаваме слогана плътно до логото */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Стил за новия удебелен текст */
 .hero-slogan {
-    font-size: 1.5rem; /* По-голям размер */
-    font-weight: 900;  /* Максимално удебеляване */
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 2px; /* Малко разстояние между буквите за красота */
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Сянка, за да се чете върху снимката */
-}
-
-.cta-btn {
-    background-color: #ff6600;
-    font-weight: 800;
-    padding: 16px 40px;
-    border-radius: 50px; /* По-заоблен и модерен бутон */
-    transition: 0.3s all ease;
-}
-
-.btn {
-    margin-top: 25px;
-    padding: 15px 40px;
-    background: #ff6600; /* Оранжев бутон */
-    color: black;
-    text-decoration: none;
-    border-radius: 50px;
+    font-size: 1.8rem;
     font-weight: 900;
     text-transform: uppercase;
-    transition: 0.3s;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.btn:hover {
-    background: #e65c00;
-    transform: scale(1.05);
-}
-
-/* Секция Упражнения */
-#exercises { 
-    padding: 80px 8%; 
-    text-align: center; 
-}
-
-.section-title { 
-    margin-bottom: 50px; 
-    font-size: 36px; 
-    text-transform: uppercase;
-}
-
-.exercise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: #1a1a1a; /* Тъмно сиво/черно за картите */
-    padding: 40px;
-    border-radius: 15px;
-    border-left: 5px solid #ff6600; /* Оранжев акцент отстрани */
-    transition: 0.4s;
-}
-
-.card:hover { 
-    background: #252525;
-    transform: translateY(-10px);
-}
-
-.card h3 { 
-    color: #ff6600; 
-    margin-bottom: 15px; 
-    font-size: 24px;
-}
-
-.card p {
-    color: #ccc;
-}
-/* Секция За Нас */
-#about {
+/* ============================================================
+   4. ГЛОБАЛНИ СЕКЦИИ (ЗА КОМПЮТЪР)
+   ============================================================ */
+section {
     padding: 100px 8%;
-    background-color: #0a0a0a;
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap; /* За да работи добре на телефони */
-    
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 15px;
-    border: 3px solid #ff6600; /* Оранжева рамка */
-    box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.3);
-}
-
-.about-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-text h2 {
-    font-size: 3rem;
-    color: #ff6600;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    color: #ddd;
-    margin-bottom: 20px;
-}
-
-.achievements {
-    list-style: none;
-    margin-bottom: 25px;
-}
-
-.achievements li {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #fff;
-}
-
-.achievements strong {
-    color: #ff6600;
-}
-/* Контейнер за подредба на 4-те карти */
-.subscriptions-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 20px;
-    max-height: 80vh; /* Ограничава височината, за да не излиза от екрана */
-    overflow-y: auto; /* Добавя скрол само вътре в това поле, ако картите са много */
-    padding: 20px;
-    width: 100%;
-}
-
-/* Малък трик: Правим скролбара по-тънък и дискретен */
-.subscriptions-grid::-webkit-scrollbar {
-    width: 6px;
-}
-.subscriptions-grid::-webkit-scrollbar-thumb {
-    background: #ff6600;
-    border-radius: 10px;
-}
-
-/* Основен стил на картите */
-.subscription-card {
-    background: #1a1a1a;
-    flex: 1;
-    min-width: 260px;
-    max-width: 280px;
-    padding: 35px 20px;
-    border-radius: 15px;
-    border: 1px solid #333;
-    text-align: center;
-    transition: 0.3s ease;
-    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Ефект при посочване */
-.subscription-card:hover {
-    transform: translateY(-10px);
-    border-color: #ff6600;
-    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.1);
-}
-
-/* Акцент за "Най-популярен" */
-.subscription-card.featured {
-    border: 2px solid #ff6600;
-    transform: scale(1.05);
-}
-
-.subscription-card.featured:hover {
-    transform: scale(1.05) translateY(-10px);
-}
-
-/* Стил за цената */
-.price {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #ff6600;
-    margin: 15px 0;
-}
-
-.price span {
-    font-size: 1rem;
-    color: #fff;
-    margin-left: 5px;
-}
-
-/* Списък с услуги */
-.subscription-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    text-align: left;
-}
-
-.subscription-card ul li {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
-    color: #ccc;
-    display: flex;
     align-items: center;
+    width: 100%;
 }
 
-.subscription-card ul li::before {
-    content: "✓";
+.section-title {
+    font-size: 2.5rem;
     color: #ff6600;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-/* Оранжевият етикет отгоре */
-.badge {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ff6600;
-    color: #000;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    white-space: nowrap;
-}
-#exercises {
-    background: #000;
+    text-transform: uppercase;
+    margin-bottom: 50px;
     text-align: center;
+    font-weight: 800;
 }
 
-.exercises-grid {
+/* ГРИДОВЕ (УПРАЖНЕНИЯ И РЕЗУЛТАТИ) */
+.exercise-grid, .results-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -355,446 +132,113 @@ header {
     max-width: 1200px;
 }
 
-.exercise-card {
+.card, .result-card {
     background: #111;
-    padding: 20px;
+    padding: 30px;
     border-radius: 15px;
-    border: 1px solid #222;
-}
-
-.video-placeholder {
-    width: 100%;
-    height: 200px;
-    background: #222;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #444;
-}
-
-/* --- СЕКЦИЯ КОНТАКТНА ФОРМА --- */
-#contact {
-    padding: 80px 8%;
-    background: #0a0a0a;
-    text-align: center;
-}
-
-/* --- СЕКЦИЯ КОНТАКТНА ФОРМА И ВРЪЗКА --- */
-#contact {
-    padding: 100px 8%;
-    background: #0a0a0a;
-}
-
-.contact-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 60px;
-    align-items: flex-start;
-}
-
-/* Лява колона: Инфо карти */
-.contact-info {
-    flex: 1;
-    text-align: left;
-}
-
-.contact-info p {
-    margin-bottom: 30px;
-    color: #888;
-    font-size: 1.1rem;
-}
-
-.contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-card {
-    display: flex;
-    align-items: center;
-    background: #111;
-    padding: 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: white;
-    border: 1px solid #222;
-    transition: 0.3s ease;
-}
-
-.contact-card i {
-    font-size: 28px;
-    color: #ff6600;
-    margin-right: 20px;
-    width: 40px;
-    text-align: center;
-}
-
-/* --- СЕКЦИЯ КОНТАКТИ: ПОДРЕДБА --- */
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Лява част: Карти с линкове */
-.contact-info { 
-    flex: 1; 
-    text-align: left; 
-}
-
-.contact-links { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 15px; 
-    margin-top: 20px; 
-}
-
-.contact-card {
-    display: flex; 
-    align-items: center; 
-    background: #111; 
-    padding: 15px;
-    border-radius: 10px; 
-    text-decoration: none; 
-    color: white; 
     border: 1px solid #222;
     transition: 0.3s;
-}
-
-.contact-card:hover {
-    border-color: #ff6600;
-    transform: translateX(10px);
-}
-
-.contact-card i { 
-    color: #ff6600; 
-    font-size: 20px; 
-    margin-right: 15px; 
-    width: 25px; 
     text-align: center;
 }
 
-/* Дясна част: Стегната форма */
-.contact-form-wrapper {
-    flex: 1; 
-    background: #111; 
-    padding: 25px; 
-    border-radius: 15px;
-    border: 1px solid #222; 
-    max-width: 450px;
-}
-
-#subscription-form { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px; 
-}
-
-/* Име и Имейл на един ред */
-.form-row { 
-    display: flex; 
-    gap: 10px; 
-}
-
-.form-group input, 
-.form-group select {
-    width: 100%; 
-    padding: 12px; 
-    background: #1a1a1a; 
-    border: 1px solid #333;
-    color: white; 
-    border-radius: 6px; 
-    font-size: 0.9rem;
-    outline: none;
-}
-
-.form-group input:focus {
-    border-color: #ff6600;
-}
-
-#subscription-form .cta-btn { 
-    width: 100%; 
-    padding: 14px; 
-    margin-top: 5px; 
-}
-
-/* Адаптация за телефон */
-@media (max-width: 850px) {
-    .contact-container { 
-        flex-direction: column; 
-        align-items: center; 
-    }
-    .contact-info { 
-        text-align: center; 
-        margin-bottom: 30px; 
-    }
-}
-
-#subscription-form .cta-btn {
-    width: 100%;
-    padding: 15px;
-    margin-top: 5px;
-}
-
-/* Мобилна версия */
-@media (max-width: 992px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .contact-info {
-        text-align: center;
-        width: 100%;
-    }
-
-    .contact-card {
-        text-align: left;
-    }
-}
-/* --- СЕКЦИЯ РЕЗУЛТАТИ (STYLING) --- */
-#results {
-    padding: 100px 8%;
-    background-color: #000; /* Черен фон */
-}
-
-.results-intro {
-    text-align: center;
-    color: #888;
-    margin-bottom: 50px;
-}
-
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    justify-content: center;
-}
-
-.result-card {
-    background: #111; /* Тъмно сиво/черно за картата */
-    border: 1px solid #333;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.result-card:hover {
-    transform: translateY(-10px);
-    border-color: #ff6600; /* Оранжев кант при посочване */
-}
+.result-card { padding: 0; overflow: hidden; }
 
 .collage-box img {
     width: 100%;
     height: auto;
-    display: block;
-    border-bottom: 3px solid #ff6600; /* Оранжева линия под снимката */
+    border-bottom: 3px solid #ff6600;
 }
 
-.result-details {
-    padding: 25px;
+/* АБОНАМЕНТИ */
+.subscriptions-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.subscription-card {
+    background: #111;
+    min-width: 280px;
+    max-width: 300px;
+    padding: 40px 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
     text-align: center;
 }
 
-.result-details h3 {
-    color: #ff6600; /* Оранжево за заглавието */
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-}
-
-.result-details p {
-    color: #ccc;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Адаптивност за малки екрани */
-@media (max-width: 480px) {
-    .results-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* --- НОВА НАВИГАЦИЯ --- */
-nav {
-    background: #111;
-    border-bottom: 2px solid #ff6600;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: center; /* Центрира линковете */
-    align-items: center;
-    padding: 15px 0;
-    width: 100%;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px; /* Разстояние между отделните думи */
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: 0.3s;
-    font-size: 0.9rem;
-}
-
-.nav-links li a:hover {
-    color: #ff6600; /* Променя цвета на оранжев при посочване */
-}
-
-/* Лявото меню да е подравнено вдясно към логото */
-.nav-links:first-child {
-    justify-content: flex-end;
-}
-
-/* Дясното меню да е подравнено вляво към логото */
-.nav-links:last-child {
-    justify-content: flex-start;
-}
-
-.logo img {
-    height: 60px; /* Това контролира големината на логото ти */
-    width: auto;
-    margin: 0 40px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff6600;
-    background: rgba(255, 102, 0, 0.1);
-    border-radius: 5px;
-}
-.cta-btn {
-    display: inline-block;
-    background-color: #ff6600; /* Оранжев цвят */
-    color: #fff;
-    padding: 15px 35px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    text-transform: uppercase;
-    margin-top: 20px;
-    transition: 0.3s;
-    border: none;
-    font-size: 1.1rem;
-}
-
-.cta-btn:hover {
-    background-color: #e65c00;
+.subscription-card.featured {
+    border: 2px solid #ff6600;
     transform: scale(1.05);
 }
 
-/* =============================================
-   МАГИЧЕСКИ КОД ЗА МОБИЛНА ВЕРСИЯ (FIX)
-   ============================================= */
-@media screen and (max-width: 768px) {
+.price {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #ff6600;
+    margin: 15px 0;
+}
+
+/* КОНТАКТИ */
+.contact-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.contact-info, .contact-form-wrapper { flex: 1; }
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #222;
+}
+
+/* ============================================================
+   5. МОБИЛНА ВЕРСИЯ (АВТОМАТИЧНО СЕ АКТИВИРА ЗА ТЕЛЕФОН)
+   ============================================================ */
+@media screen and (max-width: 850px) {
+    /* Навигация */
+    .nav-links { display: none !important; } /* Скриваме застъпените думи */
+    .nav-container { justify-content: center; }
+    header { height: 70px; }
     
-    /* 1. Пълно изчистване на застъпеното меню */
-    header {
-        height: 70px !important;
-        background: #000 !important;
-        position: fixed !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        border-bottom: 2px solid #ff6600 !important;
-    }
-
-    /* Скриваме разхвърляните думи горе */
-    .nav-links, .nav-container ul, nav ul {
-        display: none !important;
-    }
-
-    /* Логото да е малко и центрирано */
-    .logo img, header img {
-        height: 50px !important;
-        margin: 0 !important;
-        width: auto !important;
-    }
-
-    /* 2. Оправяме застъпването на секциите */
-    body {
-        padding-top: 70px !important; /* Да не влиза под менюто */
-    }
-
+    /* Секции - ОПРАВЯ ЗАСТЪПВАНЕТО */
     section {
         height: auto !important;
         min-height: auto !important;
-        padding: 60px 15px !important;
-        display: block !important; /* Подрежда елементите един под друг */
+        padding: 80px 20px !important;
+        display: block !important; /* Нарежда елементите вертикално */
     }
 
-    /* 3. Оправяме Hero секцията (Началото) */
-    .hero {
-        height: auto !important;
-        padding: 100px 10px !important;
-    }
+    body { padding-top: 70px; }
 
-    .hero-logo img {
-        width: 80% !important;
-    }
+    .section-title { font-size: 1.8rem !important; }
 
-    .hero-slogan {
-        font-size: 1.1rem !important;
-    }
-
-    /* 4. Оправяме картите (Цени, Резултати, Упражнения) */
-    .subscriptions-grid, .results-grid, .exercise-grid, .about-container, .contact-container {
+    /* Подреждане в една колона */
+    .contact-container, .about-container, .subscriptions-grid, .exercise-grid, .results-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         gap: 20px !important;
-        max-height: none !important; /* Махаме вътрешния скрол */
-        overflow: visible !important;
     }
 
-    .subscription-card, .result-card, .card, .about-image img, .contact-form-wrapper {
+    /* Hero за телефон */
+    .hero { height: auto !important; padding: 120px 20px !important; }
+    .hero-logo img { width: 280px !important; }
+    .hero-slogan { font-size: 1.2rem !important; }
+
+    /* Карти - пълна ширина */
+    .card, .result-card, .subscription-card, .contact-form-wrapper {
         width: 100% !important;
-        max-width: 340px !important;
-        margin: 0 auto !important;
-    }
-
-    /* 5. Оправяме Контактната форма */
-    .form-row {
-        flex-direction: column !important;
-    }
-
-    /* Заглавията да не са огромни */
-    .about-text h2, .section-title {
-        font-size: 1.8rem !important;
-        text-align: center !important;
+        max-width: 350px !important;
     }
 }
-
-
-
-
-
