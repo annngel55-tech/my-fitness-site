@@ -762,44 +762,49 @@ nav {
     h1 { font-size: 1.8rem !important; }
     h2 { font-size: 1.6rem !important; }
 }
-/* ТОТАЛНО ПРЕПОКРИВАНЕ ЗА МОБИЛНО МЕНЮ */
 @media screen and (max-width: 768px) {
-    /* 1. Скриваме думите, които се застъпват */
-    header nav ul, 
-    header ul, 
-    .nav-list {
-        display: none !important;
-    }
-
-    /* 2. Правим черната лента горе тънка и чиста */
+    /* 1. Настройваме лентата да побира два реда меню */
     header {
-        height: 60px !important;
-        background: #000 !important;
+        height: auto !important; /* Позволява на лентата да стане по-висока */
+        padding: 10px 0 !important;
         position: fixed !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        background: #000 !important;
         width: 100% !important;
         z-index: 9999 !important;
     }
 
-    /* 3. Оправяме съдържанието да не влиза под менюто */
-    body {
-        padding-top: 60px !important;
+    /* 2. Подреждаме секциите в решетка (3 на ред), за да се виждат всички */
+    header nav ul {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* Прави 3 колони */
+        gap: 10px !important;
+        padding: 0 10px !important;
+        margin: 0 !important;
+        list-style: none !important;
+        width: 100% !important;
     }
 
-    /* 4. Оправяме застъпването на секциите под логото ти */
-    section {
-        height: auto !important;
-        padding-top: 80px !important;
-        padding-bottom: 40px !important;
+    /* 3. Правим текста малък и спретнат */
+    header nav ul li a {
+        font-size: 10px !important; /* Намаляваме буквите, за да не се блъскат */
+        text-transform: uppercase !important;
+        white-space: nowrap !important;
         display: block !important;
-    }
-
-    /* 5. Намаляваме заглавията, за да не са гигантски */
-    h1 {
-        font-size: 1.6rem !important;
         text-align: center !important;
     }
-}
 
+    /* 4. Бутаме съдържанието надолу, за да не го закрива по-високото меню */
+    body {
+        padding-top: 100px !important;
+    }
+
+    /* 5. Оправяме снимките и секциите да не се застъпват */
+    section {
+        height: auto !important;
+        padding: 60px 20px !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem !important;
+    }
+}
