@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGteam | Фитнес тренировки</title>
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
                 <li><a href="#exercises">Упражнения</a></li>
                 <li><a href="#subscriptions">Абонамент</a></li>
                 <li><a href="#contact">Контакти</a></li>
-                <li><a href="javascript:void(0)" class="login-btn" id="login-trigger"><i class="fas fa-user"></i> ВХОД</a></li>
+                <li><a href="javascript:void(0)" class="login-btn" id="login-trigger" style="color: #ff6600; font-weight: bold;"><i class="fas fa-user"></i> ВХОД</a></li>
             </ul>
         </nav>
     </header>
@@ -147,9 +147,9 @@
                 </div>
                 <div class="contact-form-wrapper">
                     <form action="https://formspree.io/f/xykzrzzl" method="POST">
-                        <input type="text" name="Име" placeholder="Име" required>
-                        <input type="email" name="Имейл" placeholder="Имейл" required>
-                        <select name="План" id="plan-select">
+                        <input type="text" name="Клиент_Име" placeholder="Име" required>
+                        <input type="email" name="Клиент_Имейл" placeholder="Имейл" required>
+                        <select name="Избран_План" id="plan-select">
                             <option value="1-month">1 Месец - 360 лв.</option>
                             <option value="3-months">3 Месеца - 970 лв.</option>
                             <option value="6-months">6 Месеца - 1800 лв.</option>
@@ -164,33 +164,11 @@
 
     <section id="user-profile" style="display: none; padding-top: 120px; min-height: 100vh; background: #000;">
         <div class="profile-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
-            <h2 class="section-title">ТВОЯТ <span>ПРОФИЛ</span></h2>
             <div class="user-card" style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; text-align: center;">
                 <i class="fas fa-user-circle" style="font-size: 70px; color: #ff6600; margin-bottom: 20px;"></i>
-                <h3 style="font-size: 24px; margin-bottom: 10px;">Добре дошъл, <span id="display-name">Атлет</span>!</h3>
-                <p style="margin-bottom: 30px;">Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН АБОНАМЕНТ</span></p>
-                
-                <div class="subscription-details" style="display: flex; justify-content: space-around; gap: 15px; flex-wrap: wrap;">
-                    <div style="background: #000; padding: 20px; border-radius: 10px; flex: 1; min-width: 150px; border: 1px solid #222;">
-                        <p style="font-size: 11px; color: #666;">АБОНАМЕНТ</p>
-                        <strong id="user-plan">---</strong>
-                    </div>
-                    <div style="background: #000; padding: 20px; border-radius: 10px; flex: 1; min-width: 150px; border: 1px solid #222;">
-                        <p style="font-size: 11px; color: #666;">НАЧАЛО</p>
-                        <strong id="start-date">---</strong>
-                    </div>
-                    <div style="background: #000; padding: 20px; border-radius: 10px; flex: 1; min-width: 150px; border: 1px solid #222;">
-                        <p style="font-size: 11px; color: #666;">ВАЛИДЕН ДО</p>
-                        <strong id="end-date" style="color: #ff6600;">---</strong>
-                    </div>
-                </div>
-
-                <div style="margin-top: 30px; background: #1a1a1a; padding: 20px; border-radius: 10px; text-align: left; border-left: 4px solid #ff6600;">
-                    <h4 style="color: #ff6600; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> Бележка от треньора:</h4>
-                    <p style="font-size: 14px; color: #ccc;">Твоят прогрес се следи! Продължавай с тренировките по план и не забравяй да следиш храненето си.</p>
-                </div>
-                
-                <button onclick="logout()" class="cta-btn" style="margin-top: 40px; background: #333; padding: 10px 30px; font-size: 12px;">ИЗХОД ОТ ПРОФИЛА</button>
+                <h3 style="color: white; font-size: 24px;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
+                <p style="color: #ccc; margin-top: 20px;">Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН АБОНАМЕНТ</span></p>
+                <button onclick="location.reload()" class="cta-btn" style="margin-top: 40px; background: #333;">ИЗХОД</button>
             </div>
         </div>
     </section>
@@ -200,52 +178,37 @@
     </footer>
 
     <script>
-        // Меню логика
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
-        
-        menuBtn.addEventListener('click', function() {
+
+        menuBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
         });
-        
+
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.onclick = () => navList.classList.remove('active');
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
         });
 
-        // Функция за избор на план от бутоните
-        function selectPlan(val) { 
-            document.getElementById('plan-select').value = val; 
+        function selectPlan(val) {
+            document.getElementById('plan-select').value = val;
         }
 
-        // --- ЛОГИКА ЗА ВХОД В ПРОФИЛ ---
-        const loginBtn = document.getElementById('login-trigger');
-        loginBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const password = prompt("Въведете вашия клиентски код за достъп:");
+        // --- ЛОГИКА ЗА ВХОД (Работи за мобилен и десктоп) ---
+        const loginTrigger = document.getElementById('login-trigger');
+        loginTrigger.addEventListener('click', function() {
+            const code = prompt("Въведете вашия код за достъп:");
             
-            if (password === "stefan2024") {
-                showProfile("Стефан Георгиев", "1 ГОДИНА", "01.01.2024", "01.01.2025");
-            } else if (password === "client123") {
-                showProfile("Иван Иванов", "3 МЕСЕЦА", "15.01.2024", "15.04.2024");
-            } else if (password !== null && password !== "") {
-                alert("Невалиден код! Моля, свържете се със SGteam за достъп.");
+            if (code === "stefan2024") {
+                document.getElementById('main-site-content').style.display = 'none';
+                document.getElementById('user-profile').style.display = 'block';
+                document.getElementById('display-name').innerText = "Стефан";
+                window.scrollTo(0,0);
+            } else if (code !== null) {
+                alert("Грешен код!");
             }
         });
-
-        function showProfile(name, plan, start, end) {
-            navList.classList.remove('active'); // Затваря менюто
-            document.getElementById('main-site-content').style.display = 'none';
-            document.getElementById('user-profile').style.display = 'block';
-            document.getElementById('display-name').innerText = name;
-            document.getElementById('user-plan').innerText = plan;
-            document.getElementById('start-date').innerText = start;
-            document.getElementById('end-date').innerText = end;
-            window.scrollTo(0,0);
-        }
-
-        function logout() {
-            location.reload();
-        }
     </script>
 </body>
 </html>
