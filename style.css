@@ -762,57 +762,44 @@ nav {
     h1 { font-size: 1.8rem !important; }
     h2 { font-size: 1.6rem !important; }
 }
-/* ТОТАЛНО ФИКСИРАНЕ НА МОБИЛНАТА ВЕРСИЯ */
+/* ТОТАЛНО ПРЕПОКРИВАНЕ ЗА МОБИЛНО МЕНЮ */
 @media screen and (max-width: 768px) {
-    /* 1. Навигацията горе да спре да се застъпва */
+    /* 1. Скриваме думите, които се застъпват */
+    header nav ul, 
+    header ul, 
+    .nav-list {
+        display: none !important;
+    }
+
+    /* 2. Правим черната лента горе тънка и чиста */
     header {
-        height: auto !important;
-        padding: 10px 0 !important;
-        position: relative !important; /* Променяме го от fixed на relative за тест */
-    }
-
-    nav {
-        flex-direction: column !important; /* Подрежда логото над менюто */
-        align-items: center !important;
-    }
-
-    .nav-list, header nav ul {
+        height: 60px !important;
+        background: #000 !important;
+        position: fixed !important;
         display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important; /* Позволява на думите да минат на нов ред */
+        align-items: center !important;
         justify-content: center !important;
-        gap: 10px !important;
-        padding: 10px 0 !important;
-        list-style: none !important;
-    }
-
-    .nav-list li a, header nav ul li a {
-        font-size: 12px !important; /* Смаляваме буквите, за да се събират */
-        white-space: nowrap !important;
-    }
-
-    /* 2. Оправяме застъпването на секциите под менюто */
-    section {
-        padding: 40px 15px !important;
-        height: auto !important;
-        min-height: auto !important;
-        display: block !important;
-    }
-
-    /* 3. Оправяме заглавията и текстовете */
-    h1, .hero-content h1 {
-        font-size: 24px !important;
-        margin-top: 20px !important;
-    }
-
-    /* 4. Картите с цени да са една под друга */
-    .pricing-grid, .exercises-grid {
-        display: block !important;
-    }
-
-    .price-card, .card {
-        margin-bottom: 20px !important;
         width: 100% !important;
+        z-index: 9999 !important;
+    }
+
+    /* 3. Оправяме съдържанието да не влиза под менюто */
+    body {
+        padding-top: 60px !important;
+    }
+
+    /* 4. Оправяме застъпването на секциите под логото ти */
+    section {
+        height: auto !important;
+        padding-top: 80px !important;
+        padding-bottom: 40px !important;
+        display: block !important;
+    }
+
+    /* 5. Намаляваме заглавията, за да не са гигантски */
+    h1 {
+        font-size: 1.6rem !important;
+        text-align: center !important;
     }
 }
 
