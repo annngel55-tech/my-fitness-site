@@ -770,4 +770,40 @@ nav {
     .nav-links li { margin: 15px 0; }
     .navbar { padding: 10px 20px; }
 }
+@media screen and (max-width: 768px) {
+    /* 1. Скриваме разхвърляните сини линкове */
+    nav ul, .nav-links, header ul {
+        display: none !important;
+    }
+
+    /* 2. Правим лентата горе чиста и фиксирана */
+    header {
+        position: fixed !important;
+        top: 0;
+        width: 100% !important;
+        height: 60px !important;
+        background: #000 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important; /* Логото отива в средата */
+        z-index: 9999 !important;
+        border-bottom: 1px solid #ff6600;
+    }
+
+    /* 3. Бутаме съдържанието надолу, за да не влиза под лентата */
+    body {
+        padding-top: 60px !important;
+    }
+
+    /* 4. Оправяме снимката в началото да не е сплескана */
+    .hero, #home {
+        height: auto !important;
+        padding: 40px 0 !important;
+    }
+
+    .hero img, .logo img {
+        max-width: 80% !important;
+        height: auto !important;
+    }
+}
 
