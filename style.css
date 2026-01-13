@@ -712,6 +712,89 @@ nav {
     transform: scale(1.05);
 }
 
+/* =============================================
+   МАГИЧЕСКИ КОД ЗА МОБИЛНА ВЕРСИЯ (FIX)
+   ============================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Пълно изчистване на застъпеното меню */
+    header {
+        height: 70px !important;
+        background: #000 !important;
+        position: fixed !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-bottom: 2px solid #ff6600 !important;
+    }
+
+    /* Скриваме разхвърляните думи горе */
+    .nav-links, .nav-container ul, nav ul {
+        display: none !important;
+    }
+
+    /* Логото да е малко и центрирано */
+    .logo img, header img {
+        height: 50px !important;
+        margin: 0 !important;
+        width: auto !important;
+    }
+
+    /* 2. Оправяме застъпването на секциите */
+    body {
+        padding-top: 70px !important; /* Да не влиза под менюто */
+    }
+
+    section {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 60px 15px !important;
+        display: block !important; /* Подрежда елементите един под друг */
+    }
+
+    /* 3. Оправяме Hero секцията (Началото) */
+    .hero {
+        height: auto !important;
+        padding: 100px 10px !important;
+    }
+
+    .hero-logo img {
+        width: 80% !important;
+    }
+
+    .hero-slogan {
+        font-size: 1.1rem !important;
+    }
+
+    /* 4. Оправяме картите (Цени, Резултати, Упражнения) */
+    .subscriptions-grid, .results-grid, .exercise-grid, .about-container, .contact-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        max-height: none !important; /* Махаме вътрешния скрол */
+        overflow: visible !important;
+    }
+
+    .subscription-card, .result-card, .card, .about-image img, .contact-form-wrapper {
+        width: 100% !important;
+        max-width: 340px !important;
+        margin: 0 auto !important;
+    }
+
+    /* 5. Оправяме Контактната форма */
+    .form-row {
+        flex-direction: column !important;
+    }
+
+    /* Заглавията да не са огромни */
+    .about-text h2, .section-title {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+    }
+}
+
+
 
 
 
