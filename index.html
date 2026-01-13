@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGteam | Фитнес портал</title>
+    <title>SGteam | Фитнес тренировки</title>
     <link rel="stylesheet" href="style.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -19,18 +19,29 @@
             </div>
             <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Начало</a></li>
+                <li><a href="#about">За нас</a></li>
+                <li><a href="#results">Резултати</a></li>
+                <li><a href="#exercises">Упражнения</a></li>
                 <li><a href="#subscriptions">Абонамент</a></li>
                 <li><a href="#contact">Контакти</a></li>
-                <li><a href="#" class="login-btn" onclick="loginSystem()"><i class="fas fa-user"></i> ВХОД</a></li>
+                <li><a href="javascript:void(0)" class="login-btn" onclick="loginSystem()"><i class="fas fa-user"></i> ВХОД</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main-content">
+    <div id="main-site-content">
         <section id="home" class="hero">
             <div class="hero-logo"><img src="logo-new.png" alt="Logo"></div>
             <p class="hero-slogan">СТАНИ НАЙ-ДОБРАТА ВЕРСИЯ НА СЕБЕ СИ!</p>
             <a href="#subscriptions" class="cta-btn">АБОНИРАЙ СЕ СЕГА</a>
+        </section>
+
+        <section id="results">
+            <h2 class="section-title">Реални <span>Трансформации</span></h2>
+            <div class="results-grid">
+                <div class="result-card"><img src="collage1.png" alt="T1"><h3>Трансформация #1</h3></div>
+                <div class="result-card"><img src="collage2.png" alt="T2"><h3>Трансформация #2</h3></div>
+            </div>
         </section>
 
         <section id="subscriptions">
@@ -39,70 +50,114 @@
                 <div class="subscription-card">
                     <h3>1 МЕСЕЦ</h3>
                     <div class="price">360<span>лв</span></div>
+                    <ul><li>Индивидуален план</li><li>Хранителен режим</li></ul>
                     <a href="#contact" class="cta-btn" onclick="selectPlan('1-month')">Избери</a>
                 </div>
                 <div class="subscription-card featured">
                     <div class="badge">НАЙ-ПОПУЛЯРЕН</div>
                     <h3>3 МЕСЕЦА</h3>
                     <div class="price">970<span>лв</span></div>
+                    <ul><li>Всичко от 1 месец</li><li>Видео връзка</li></ul>
                     <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери</a>
+                </div>
+                <div class="subscription-card">
+                    <h3>6 МЕСЕЦА</h3>
+                    <div class="price">1800<span>лв</span></div>
+                    <ul><li>Всичко от 3 месеца</li><li>Приоритетна поддръжка</li></ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('6-months')">Избери</a>
+                </div>
+                <div class="subscription-card">
+                    <h3>1 ГОДИНА</h3>
+                    <div class="price">3200<span>лв</span></div>
+                    <ul><li>Пълна трансформация</li><li>Най-добра цена</li></ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-year')">Избери</a>
                 </div>
             </div>
         </section>
-    </main>
 
-    <section id="user-profile" style="display: none; padding-top: 120px; min-height: 100vh;">
-        <div class="profile-container">
+        <section id="contact">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="section-title">Свържи се с <span>Мен</span></h2>
+                    <a href="tel:+359895702336" class="contact-card"><i class="fas fa-phone"></i> +359 89 570 2336</a>
+                    <a href="https://www.instagram.com/_stefan.georgiev_/" class="contact-card"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form action="https://formspree.io/f/xykzrzzl" method="POST">
+                        <input type="text" name="name" placeholder="Име" required>
+                        <input type="email" name="email" placeholder="Имейл" required>
+                        <select name="plan" id="plan-select">
+                            <option value="1-month">1 Месец - 360 лв.</option>
+                            <option value="3-months">3 Месеца - 970 лв.</option>
+                            <option value="6-months">6 Месеца - 1800 лв.</option>
+                            <option value="1-year">1 Година - 3200 лв.</option>
+                        </select>
+                        <button type="submit" class="cta-btn submit-btn">ИЗПРАТИ</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="user-profile" style="display: none; padding-top: 120px; min-height: 100vh; background: #000;">
+        <div class="profile-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
             <h2 class="section-title">ТВОЯТ <span>ПРОФИЛ</span></h2>
-            <div class="user-card">
-                <div class="profile-header">
-                    <i class="fas fa-user-circle" style="font-size: 60px; color: #ff6600; margin-bottom: 15px;"></i>
-                    <h3>Добре дошъл, <span id="display-name">Атлет</span>!</h3>
-                    <p>Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН</span></p>
-                </div>
+            <div class="user-card" style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; text-align: center;">
+                <i class="fas fa-user-circle" style="font-size: 70px; color: #ff6600; margin-bottom: 20px;"></i>
+                <h3 style="font-size: 24px; margin-bottom: 10px;">Добре дошъл, <span id="display-name">Атлет</span>!</h3>
+                <p style="margin-bottom: 30px;">Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН АБОНАМЕНТ</span></p>
                 
-                <div class="subscription-details">
-                    <div class="detail-box">
-                        <p>АБОНАМЕНТ</p>
-                        <strong id="user-plan">3 МЕСЕЦА</strong>
+                <div class="subscription-details" style="display: flex; justify-content: space-around; gap: 15px; flex-wrap: wrap;">
+                    <div style="background: #000; padding: 20px; border-radius: 10px; flex: 1; min-width: 150px; border: 1px solid #222;">
+                        <p style="font-size: 11px; color: #666;">АБОНАМЕНТ</p>
+                        <strong id="user-plan">---</strong>
                     </div>
-                    <div class="detail-box">
-                        <p>НАЧАЛО</p>
-                        <strong id="start-date">14.01.2024</strong>
+                    <div style="background: #000; padding: 20px; border-radius: 10px; flex: 1; min-width: 150px; border: 1px solid #222;">
+                        <p style="font-size: 11px; color: #666;">НАЧАЛО</p>
+                        <strong id="start-date">---</strong>
                     </div>
-                    <div class="detail-box">
-                        <p>ВАЛИДЕН ДО</p>
-                        <strong id="end-date" style="color: #ff6600;">14.04.2024</strong>
+                    <div style="background: #000; padding: 20px; border-radius: 10px; flex: 1; min-width: 150px; border: 1px solid #222;">
+                        <p style="font-size: 11px; color: #666;">ВАЛИДЕН ДО</p>
+                        <strong id="end-date" style="color: #ff6600;">---</strong>
                     </div>
                 </div>
 
-                <div class="training-info" style="margin-top: 30px; background: #1a1a1a; padding: 20px; border-radius: 10px; text-align: left;">
-                    <h4 style="color: #ff6600; margin-bottom: 10px;"><i class="fas fa-dumbbell"></i> Твоите насоки за седмицата:</h4>
-                    <p style="font-size: 14px; color: #ccc;">Продължаваме по план с увеличаване на тежестите при базовата тренировка. Не забравяй да следиш приема на вода!</p>
+                <div style="margin-top: 30px; background: #1a1a1a; padding: 20px; border-radius: 10px; text-align: left; border-left: 4px solid #ff6600;">
+                    <h4 style="color: #ff6600; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> Бележка от треньора:</h4>
+                    <p style="font-size: 14px; color: #ccc;">Следи графика си и не забравяй да изпращаш седмичните си отчети всяка неделя вечер!</p>
                 </div>
                 
-                <button onclick="logout()" class="cta-btn" style="margin-top: 30px; background: #333; font-size: 12px;">ИЗХОД</button>
+                <button onclick="logout()" class="cta-btn" style="margin-top: 40px; background: #333; padding: 10px 30px; font-size: 12px;">ИЗХОД ОТ ПРОФИЛА</button>
             </div>
         </div>
     </section>
 
     <script>
-        // ЛОГИКА ЗА ВХОД (ВАРИАНТ 2)
+        const menuBtn = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        menuBtn.onclick = () => navList.classList.toggle('active');
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.onclick = () => navList.classList.remove('active');
+        });
+
+        function selectPlan(val) { document.getElementById('plan-select').value = val; }
+
+        // --- СИСТЕМА ЗА ВХОД (ВАРИАНТ 2) ---
         function loginSystem() {
-            const password = prompt("Моля, въведете вашия клиентски код:");
+            const password = prompt("Въведете вашия клиентски код за достъп:");
             
-            // Можеш да добавиш колкото искаш клиенти тук
             if (password === "stefan2024") {
                 showProfile("Стефан Георгиев", "1 ГОДИНА", "01.01.2024", "01.01.2025");
             } else if (password === "client123") {
                 showProfile("Иван Иванов", "3 МЕСЕЦА", "10.01.2024", "10.04.2024");
-            } else {
-                alert("Невалиден код! Свържете се със SGteam за достъп.");
+            } else if (password !== null) {
+                alert("Невалиден код! Моля, свържете се със SGteam.");
             }
         }
 
         function showProfile(name, plan, start, end) {
-            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('main-site-content').style.display = 'none';
             document.getElementById('user-profile').style.display = 'block';
             document.getElementById('display-name').innerText = name;
             document.getElementById('user-plan').innerText = plan;
@@ -112,13 +167,8 @@
         }
 
         function logout() {
-            location.reload(); // Най-лесният начин за изход
+            location.reload();
         }
-
-        // Мобилно меню логика
-        const menuBtn = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-        menuBtn.onclick = () => navList.classList.toggle('active');
     </script>
 </body>
 </html>
