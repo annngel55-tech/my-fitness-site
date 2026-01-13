@@ -762,3 +762,37 @@ nav {
     h1 { font-size: 1.8rem !important; }
     h2 { font-size: 1.6rem !important; }
 }
+/* ФИНАЛНИ ПОПРАВКИ ЗА МЕНЮТО НА ТЕЛЕФОН */
+@media (max-width: 768px) {
+    /* 1. Настройваме лентата отгоре да е стабилна */
+    header {
+        height: 70px !important;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #000 !important;
+    }
+
+    /* 2. Скриваме хоризонталното меню, което се чупи */
+    header nav ul {
+        display: none !important;
+    }
+
+    /* 3. Центрираме логото (или името) в средата на лентата */
+    header nav {
+        justify-content: center !important;
+        height: 100%;
+    }
+
+    /* 4. Бутаме съдържанието надолу, за да не влиза под черната лента */
+    body {
+        padding-top: 70px !important;
+    }
+
+    /* 5. Уверяваме се, че секциите имат място */
+    section {
+        padding: 60px 20px !important;
+        height: auto !important;
+    }
+}
