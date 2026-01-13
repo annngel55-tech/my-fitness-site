@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGteam | Фитнес тренировки</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
                 <li><a href="#exercises">Упражнения</a></li>
                 <li><a href="#subscriptions">Абонамент</a></li>
                 <li><a href="#contact">Контакти</a></li>
-                <li><a href="javascript:void(0)" class="login-btn" onclick="loginSystem()"><i class="fas fa-user"></i> ВХОД</a></li>
+                <li><a href="javascript:void(0)" class="login-btn" id="login-trigger"><i class="fas fa-user"></i> ВХОД</a></li>
             </ul>
         </nav>
     </header>
@@ -61,81 +61,6 @@
             </div>
         </section>
 
-        <section id="results">
-            <h2 class="section-title">Реални <span>Трансформации</span></h2>
-            <div class="results-grid">
-                <div class="result-card">
-                    <img src="collage1.png" alt="Трансформация 1">
-                    <div class="result-details"><h3>Трансформация #1</h3></div>
-                </div>
-                <div class="result-card">
-                    <img src="collage2.png" alt="Трансформация 2">
-                    <div class="result-details"><h3>Трансформация #2</h3></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="subscriptions">
-            <h2 class="section-title">ИЗБЕРИ СВОЯ <span>ПЛАН</span></h2>
-            <div class="subscriptions-grid">
-                <div class="subscription-card">
-                    <h3>1 МЕСЕЦ</h3>
-                    <div class="price">360<span>лв</span></div>
-                    <ul>
-                        <li>Персонален план</li>
-                        <li>Хранителен режим</li>
-                        <li>24/7 поддръжка</li>
-                    </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-month')">Избери План</a>
-                </div>
-                <div class="subscription-card featured">
-                    <div class="badge">НАЙ-ПОПУЛЯРЕН</div>
-                    <h3>3 МЕСЕЦА</h3>
-                    <div class="price">970<span>лв</span></div>
-                    <ul>
-                        <li>Всичко от 1 месец</li>
-                        <li>Видео консултации</li>
-                        <li>Проследяване на резултати</li>
-                    </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери План</a>
-                </div>
-                <div class="subscription-card">
-                    <h3>6 МЕСЕЦА</h3>
-                    <div class="price">1800<span>лв</span></div>
-                    <ul>
-                        <li>Всичко от 3 месеца</li>
-                        <li>Приоритетна комуникация</li>
-                        <li>Професионални насоки</li>
-                    </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('6-months')">Избери План</a>
-                </div>
-                <div class="subscription-card">
-                    <h3>1 ГОДИНА</h3>
-                    <div class="price">3200<span>лв</span></div>
-                    <ul>
-                        <li>Пълна трансформация</li>
-                        <li>Индивидуални сесии</li>
-                        <li>Най-добра цена за месец</li>
-                    </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-year')">Избери План</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="exercises">
-            <h2 class="section-title">Моите <span>Упражнения</span></h2>
-            <div class="exercises-grid">
-                <div class="card">
-                    <div class="video-placeholder" style="height: 200px; background: #222; display:flex; align-items:center; justify-content:center; margin-bottom: 15px;">ВИДЕО</div>
-                    <h3>Клекове</h3>
-                </div>
-                <div class="card">
-                    <div class="video-placeholder" style="height: 200px; background: #222; display:flex; align-items:center; justify-content:center; margin-bottom: 15px;">ВИДЕО</div>
-                    <h3>Мъртва тяга</h3>
-                </div>
-            </div>
-        </section>
-
         <section id="contact">
             <div class="contact-container">
                 <div class="contact-info">
@@ -147,9 +72,9 @@
                 </div>
                 <div class="contact-form-wrapper">
                     <form action="https://formspree.io/f/xykzrzzl" method="POST">
-                        <input type="text" name="name" placeholder="Име" required>
-                        <input type="email" name="email" placeholder="Имейл" required>
-                        <select name="plan" id="plan-select">
+                        <input type="text" name="Клиент_Име" placeholder="Име" required>
+                        <input type="email" name="Клиент_Имейл" placeholder="Имейл" required>
+                        <select name="Избран_План" id="plan-select">
                             <option value="1-month">1 Месец - 360 лв.</option>
                             <option value="3-months">3 Месеца - 970 лв.</option>
                             <option value="6-months">6 Месеца - 1800 лв.</option>
@@ -203,7 +128,10 @@
         // Меню логика
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
-        menuBtn.onclick = () => navList.classList.toggle('active');
+        
+        menuBtn.addEventListener('click', function() {
+            navList.classList.toggle('active');
+        });
         
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.onclick = () => navList.classList.remove('active');
@@ -213,20 +141,23 @@
             document.getElementById('plan-select').value = val; 
         }
 
-        // --- ЛОГИКА ЗА ВХОД В ПРОФИЛ ---
-        function loginSystem() {
+        // --- ЛОГИКА ЗА ВХОД В ПРОФИЛ (Поправена за компютър и мобилен) ---
+        const loginBtn = document.getElementById('login-trigger');
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             const password = prompt("Въведете вашия клиентски код за достъп:");
             
             if (password === "stefan2024") {
                 showProfile("Стефан Георгиев", "1 ГОДИНА", "01.01.2024", "01.01.2025");
             } else if (password === "client123") {
                 showProfile("Иван Иванов", "3 МЕСЕЦА", "15.01.2024", "15.04.2024");
-            } else if (password !== null) {
+            } else if (password !== null && password !== "") {
                 alert("Невалиден код! Моля, свържете се със SGteam за достъп.");
             }
-        }
+        });
 
         function showProfile(name, plan, start, end) {
+            navList.classList.remove('active'); // Затваря менюто на мобилен
             document.getElementById('main-site-content').style.display = 'none';
             document.getElementById('user-profile').style.display = 'block';
             document.getElementById('display-name').innerText = name;
