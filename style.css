@@ -762,37 +762,57 @@ nav {
     h1 { font-size: 1.8rem !important; }
     h2 { font-size: 1.6rem !important; }
 }
-/* ФИНАЛНИ ПОПРАВКИ ЗА МЕНЮТО НА ТЕЛЕФОН */
-@media (max-width: 768px) {
-    /* 1. Настройваме лентата отгоре да е стабилна */
+/* ТОТАЛНО ФИКСИРАНЕ НА МОБИЛНАТА ВЕРСИЯ */
+@media screen and (max-width: 768px) {
+    /* 1. Навигацията горе да спре да се застъпва */
     header {
-        height: 70px !important;
-        position: fixed !important;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #000 !important;
-    }
-
-    /* 2. Скриваме хоризонталното меню, което се чупи */
-    header nav ul {
-        display: none !important;
-    }
-
-    /* 3. Центрираме логото (или името) в средата на лентата */
-    header nav {
-        justify-content: center !important;
-        height: 100%;
-    }
-
-    /* 4. Бутаме съдържанието надолу, за да не влиза под черната лента */
-    body {
-        padding-top: 70px !important;
-    }
-
-    /* 5. Уверяваме се, че секциите имат място */
-    section {
-        padding: 60px 20px !important;
         height: auto !important;
+        padding: 10px 0 !important;
+        position: relative !important; /* Променяме го от fixed на relative за тест */
+    }
+
+    nav {
+        flex-direction: column !important; /* Подрежда логото над менюто */
+        align-items: center !important;
+    }
+
+    .nav-list, header nav ul {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important; /* Позволява на думите да минат на нов ред */
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 10px 0 !important;
+        list-style: none !important;
+    }
+
+    .nav-list li a, header nav ul li a {
+        font-size: 12px !important; /* Смаляваме буквите, за да се събират */
+        white-space: nowrap !important;
+    }
+
+    /* 2. Оправяме застъпването на секциите под менюто */
+    section {
+        padding: 40px 15px !important;
+        height: auto !important;
+        min-height: auto !important;
+        display: block !important;
+    }
+
+    /* 3. Оправяме заглавията и текстовете */
+    h1, .hero-content h1 {
+        font-size: 24px !important;
+        margin-top: 20px !important;
+    }
+
+    /* 4. Картите с цени да са една под друга */
+    .pricing-grid, .exercises-grid {
+        display: block !important;
+    }
+
+    .price-card, .card {
+        margin-bottom: 20px !important;
+        width: 100% !important;
     }
 }
+
