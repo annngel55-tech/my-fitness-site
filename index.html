@@ -162,16 +162,33 @@
         </section>
     </div>
 
-    <section id="user-profile" style="display: none; padding-top: 120px; min-height: 100vh; background: #000;">
-        <div class="profile-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
-            <div class="user-card" style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; text-align: center;">
-                <i class="fas fa-user-circle" style="font-size: 70px; color: #ff6600; margin-bottom: 20px;"></i>
-                <h3 style="color: white; font-size: 24px;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
-                <p style="color: #ccc; margin-top: 20px;">Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН АБОНАМЕНТ</span></p>
-                <button onclick="location.reload()" class="cta-btn" style="margin-top: 40px; background: #333;">ИЗХОД</button>
+   <section id="user-profile" style="display: none; padding-top: 120px; min-height: 100vh; background: #000;">
+    <div class="profile-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <div class="user-card" style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; text-align: center;">
+            <i class="fas fa-user-circle" style="font-size: 70px; color: #ff6600; margin-bottom: 20px;"></i>
+            <h3 style="color: white; font-size: 24px; margin-bottom: 10px;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
+            <p style="color: #ccc; margin-bottom: 30px;">Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН АБОНАМЕНТ</span></p>
+
+            <div class="subscription-dates" style="display: flex; justify-content: space-around; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+                <div style="background: #000; padding: 15px; border-radius: 10px; flex: 1; min-width: 140px; border: 1px solid #333;">
+                    <p style="font-size: 11px; color: #666; text-transform: uppercase;">Начало</p>
+                    <strong id="start-date" style="color: #fff;">--.--.----</strong>
+                </div>
+                <div style="background: #000; padding: 15px; border-radius: 10px; flex: 1; min-width: 140px; border: 1px solid #333;">
+                    <p style="font-size: 11px; color: #666; text-transform: uppercase;">Валиден до</p>
+                    <strong id="end-date" style="color: #ff6600;">--.--.----</strong>
+                </div>
             </div>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 10px; text-align: left; border-left: 4px solid #ff6600; margin-bottom: 30px;">
+                <h4 style="color: #ff6600; margin-bottom: 8px; font-size: 16px;"><i class="fas fa-comment-dots"></i> Бележка от треньора:</h4>
+                <p id="coach-note" style="font-size: 14px; color: #ccc; font-style: italic;">Зареждане на бележка...</p>
+            </div>
+
+            <button onclick="location.reload()" class="cta-btn" style="background: #333; padding: 10px 30px; font-size: 14px;">ИЗХОД</button>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer style="text-align: center; padding: 30px; background: #000; color: #555;">
         © 2024 Stefan Georgiev. Всички права запазени.
@@ -212,3 +229,4 @@
     </script>
 </body>
 </html>
+
