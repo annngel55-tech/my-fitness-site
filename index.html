@@ -19,6 +19,7 @@
             </div>
             <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Начало</a></li>
+                <li><a href="#about">За нас</a></li>
                 <li><a href="#results">Резултати</a></li>
                 <li><a href="#subscriptions">Абонамент</a></li>
                 <li><a href="#contact">Контакти</a></li>
@@ -35,6 +36,23 @@
                 </div>
                 <p class="hero-slogan">СТАНИ НАЙ-ДОБРАТА ВЕРСИЯ НА СЕБЕ СИ!</p>
                 <a href="#subscriptions" class="cta-btn">АБОНИРАЙ СЕ СЕГА</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="trainer.png" alt="SGteam Trainer">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Кои сме <span>ние?</span></h2>
+                    <p>Добре дошли в <strong>SGteam</strong> – мястото, където шампионите се създават под ръководството на професионалисти.</p>
+                    <ul class="achievements">
+                        <li>🏆 Професионален атлет - IFBB Professional League</li>
+                        <li>🏅 Медалист от състезанието FLEX Weekend</li>
+                        <li>💪 Сертифициран треньор от NPC Worldwide</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -153,15 +171,16 @@
 
         function selectPlan(val) { document.getElementById('plan-select').value = val; }
 
+        // МАСКИРАН ВХОД
         const loginTrigger = document.getElementById('login-trigger');
         loginTrigger.addEventListener('click', function() {
             const userInput = prompt("Въведете вашия код за достъп:");
             if (!userInput) return;
             const hashedInput = btoa(userInput);
-            if (hashedInput === "c3RlZmFuMjAyNA==") { 
-                showProfile("Стефан", "01.01.2024", "01.01.2025", "Продължавай със същия дух! Фокусирай се върху прогресивното натоварване.");
-            } else if (hashedInput === "Y2xpZW50MTIz") {
-                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Техниката е важна. Намали тежестта за по-добра изолация.");
+            if (hashedInput === "c3RlZmFuMjAyNA==") { // stefan2024
+                showProfile("Стефан", "01.01.2024", "01.01.2025", "Продължавай със същия дух!");
+            } else if (hashedInput === "Y2xpZW50MTIz") { // client123
+                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Фокусирай се върху техниката.");
             } else { alert("Грешен код!"); }
         });
 
@@ -175,6 +194,7 @@
             window.scrollTo(0,0);
         }
 
+        // КАРУСЕЛ
         const items = document.querySelectorAll('.carousel-item');
         const dotsContainer = document.querySelector('.carousel-dots');
         let idx = 0;
