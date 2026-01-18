@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGteam | Фитнес тренировки</title>
-    <link rel="stylesheet" href="style.css?v=5"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -13,11 +14,9 @@
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
-
             <div class="logo">
                 <img src="logo-new.png" alt="SG TEAM">
             </div>
-
             <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Начало</a></li>
                 <li><a href="#about">За нас</a></li>
@@ -25,7 +24,7 @@
                 <li><a href="#exercises">Упражнения</a></li>
                 <li><a href="#subscriptions">Абонамент</a></li>
                 <li><a href="#contact">Контакти</a></li>
-                <li><a href="javascript:void(0)" class="login-btn" id="login-trigger" style="color: #ff6600; font-weight: bold;"><i class="fas fa-user"></i> ВХОД</a></li>
+                <li><a href="javascript:void(0)" class="login-btn" id="login-trigger"><i class="fas fa-user"></i> ВХОД</a></li>
             </ul>
         </nav>
     </header>
@@ -36,43 +35,25 @@
                 <div class="hero-logo">
                     <img src="logo-new.png" alt="SGteam Logo">
                 </div>
-                <div class="hero-bottom">
-                    <p class="hero-slogan">СТАНИ НАЙ-ДОБРАТА ВЕРСИЯ НА СЕБЕ СИ!</p>
-                    <a href="#subscriptions" class="cta-btn hero-btn">АБОНИРАЙ СЕ СЕГА</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="trainer.png" alt="SGteam Trainer">
-                </div>
-                <div class="about-text">
-                    <h2 class="section-title">Кои сме ние?</h2>
-                    <p>Добре дошли в <strong>SGteam</strong> – мястото, където шампионите се създават.</p>
-                    <ul class="achievements" style="list-style: none; margin-top: 20px;">
-                        <li>🏆 Професионален атлет - IFBB Professional League</li>
-                        <li>🏅 Медалист от състезанието FLEX Weekend</li>
-                        <li>💪 Сертифициран треньор от NPC Worldwide</li>
-                    </ul>
-                </div>
+                <p class="hero-slogan">СТАНИ НАЙ-ДОБРАТА ВЕРСИЯ НА СЕБЕ СИ!</p>
+                <a href="#subscriptions" class="cta-btn">АБОНИРАЙ СЕ СЕГА</a>
             </div>
         </section>
 
         <section id="results">
-    <h2 class="section-title">Реални <span>Трансформации</span></h2>
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <div class="carousel-item"><img src="collage1.png" alt="Трансформация 1"></div>
-            <div class="carousel-item"><img src="collage2.png" alt="Трансформация 2"></div>
-            <div class="carousel-item"><img src="collage3.png" alt="Трансформация 3"></div>
-        </div>
-        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-        <div class="carousel-dots"></div>
-    </div>
-</section>
+            <h2 class="section-title">Реални <span>Трансформации</span></h2>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="carousel-item"><img src="collage1.png" alt="Трансформация 1"></div>
+                    <div class="carousel-item"><img src="collage2.png" alt="Трансформация 2"></div>
+                    <div class="carousel-item"><img src="collage3.png" alt="Трансформация 3"></div>
+                </div>
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots"></div>
+            </div>
+        </section>
+
         <section id="subscriptions">
             <h2 class="section-title">ИЗБЕРИ СВОЯ <span>ПЛАН</span></h2>
             <div class="subscriptions-grid">
@@ -97,40 +78,6 @@
                     </ul>
                     <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери План</a>
                 </div>
-                <div class="subscription-card">
-                    <h3>6 МЕСЕЦА</h3>
-                    <div class="price">1800<span>лв</span></div>
-                    <ul>
-                        <li>Всичко от 3 месеца</li>
-                        <li>Приоритетна комуникация</li>
-                        <li>Професионални насоки</li>
-                    </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('6-months')">Избери План</a>
-                </div>
-                <div class="subscription-card">
-                    <h3>1 ГОДИНА</h3>
-                    <div class="price">3200<span>лв</span></div>
-                    <ul>
-                        <li>Пълна трансформация</li>
-                        <li>Индивидуални сесии</li>
-                        <li>Най-добра цена за месец</li>
-                    </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-year')">Избери План</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="exercises">
-            <h2 class="section-title">Моите <span>Упражнения</span></h2>
-            <div class="exercises-grid">
-                <div class="card">
-                    <div class="video-placeholder" style="height: 200px; background: #222; display:flex; align-items:center; justify-content:center; margin-bottom: 15px;">ВИДЕО</div>
-                    <h3>Клекове</h3>
-                </div>
-                <div class="card">
-                    <div class="video-placeholder" style="height: 200px; background: #222; display:flex; align-items:center; justify-content:center; margin-bottom: 15px;">ВИДЕО</div>
-                    <h3>Мъртва тяга</h3>
-                </div>
             </div>
         </section>
 
@@ -138,20 +85,16 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h2 class="section-title">Свържи се с <span>Мен</span></h2>
-                    <div class="contact-links">
-                        <a href="tel:+359895702336" class="contact-card"><i class="fas fa-phone"></i> +359 89 570 2336</a>
-                        <a href="https://www.instagram.com/_stefan.georgiev_/" target="_blank" class="contact-card"><i class="fab fa-instagram"></i> Instagram</a>
-                    </div>
+                    <a href="tel:+359895702336" class="contact-card"><i class="fas fa-phone"></i> +359 89 570 2336</a>
+                    <a href="https://www.instagram.com/_stefan.georgiev_/" target="_blank" class="contact-card"><i class="fab fa-instagram"></i> Instagram</a>
                 </div>
                 <div class="contact-form-wrapper">
                     <form action="https://formspree.io/f/xykzrzzl" method="POST">
-                        <input type="text" name="Клиент_Име" placeholder="Име" required>
-                        <input type="email" name="Клиент_Имейл" placeholder="Имейл" required>
-                        <select name="Избран_План" id="plan-select">
+                        <input type="text" name="Име" placeholder="Вашето Име" required>
+                        <input type="email" name="Имейл" placeholder="Вашият Имейл" required>
+                        <select name="План" id="plan-select">
                             <option value="1-month">1 Месец - 360 лв.</option>
                             <option value="3-months">3 Месеца - 970 лв.</option>
-                            <option value="6-months">6 Месеца - 1800 лв.</option>
-                            <option value="1-year">1 Година - 3200 лв.</option>
                         </select>
                         <button type="submit" class="cta-btn submit-btn">ИЗПРАТИ</button>
                     </form>
@@ -164,75 +107,49 @@
         <div class="profile-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
             <div class="user-card" style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; text-align: center;">
                 <i class="fas fa-user-circle" style="font-size: 70px; color: #ff6600; margin-bottom: 20px;"></i>
-                <h3 style="color: white; font-size: 24px; margin-bottom: 10px;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
-                <p style="color: #ccc; margin-bottom: 30px;">Статус: <span style="color: #2ecc71; font-weight: bold;">АКТИВЕН АБОНАМЕНТ</span></p>
+                <h3 style="color: white; font-size: 24px;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
+                <p style="color: #2ecc71; font-weight: bold; margin-bottom: 30px;">АКТИВЕН АБОНАМЕНТ</p>
 
-                <div class="subscription-dates" style="display: flex; justify-content: space-around; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-                    <div style="background: #000; padding: 15px; border-radius: 10px; flex: 1; min-width: 140px; border: 1px solid #333;">
-                        <p style="font-size: 11px; color: #666; text-transform: uppercase;">Начало</p>
+                <div class="subscription-dates">
+                    <div class="date-box">
+                        <p style="font-size: 11px; color: #666;">НАЧАЛО</p>
                         <strong id="start-date" style="color: #fff;">--.--.----</strong>
                     </div>
-                    <div style="background: #000; padding: 15px; border-radius: 10px; flex: 1; min-width: 140px; border: 1px solid #333;">
-                        <p style="font-size: 11px; color: #666; text-transform: uppercase;">Валиден до</p>
+                    <div class="date-box">
+                        <p style="font-size: 11px; color: #666;">ВАЛИДЕН ДО</p>
                         <strong id="end-date" style="color: #ff6600;">--.--.----</strong>
                     </div>
                 </div>
 
-                <div style="background: #1a1a1a; padding: 20px; border-radius: 10px; text-align: left; border-left: 4px solid #ff6600; margin-bottom: 30px;">
-                    <h4 style="color: #ff6600; margin-bottom: 8px; font-size: 16px;"><i class="fas fa-comment-dots"></i> Бележка от треньора:</h4>
-                    <p id="coach-note" style="font-size: 14px; color: #ccc; font-style: italic;">Зареждане...</p>
+                <div class="coach-note-box">
+                    <h4 style="color: #ff6600; font-size: 16px;"><i class="fas fa-comment-dots"></i> Бележка:</h4>
+                    <p id="coach-note" style="color: #ccc; font-style: italic;">Зареждане...</p>
                 </div>
 
-                <button onclick="location.reload()" class="cta-btn" style="background: #333; padding: 10px 30px; font-size: 14px;">ИЗХОД</button>
+                <button onclick="location.reload()" class="cta-btn" style="background: #333;">ИЗХОД</button>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 30px; background: #000; color: #555;">
-        © 2024 Stefan Georgiev. Всички права запазени.
-    </footer>
-
     <script>
-        // Меню логика
+        // Мобилно меню
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
-        
-        menuBtn.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
+        menuBtn.addEventListener('click', () => navList.classList.toggle('active'));
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
-        });
-
-        function selectPlan(val) {
-            document.getElementById('plan-select').value = val;
-        }
-
-        // --- ЛОГИКА ЗА ВХОД В ПРОФИЛ ---
+        // Маскиран вход
         const loginTrigger = document.getElementById('login-trigger');
         loginTrigger.addEventListener('click', function() {
-            const code = prompt("Въведете вашия код за достъп:");
-            
-            if (code === "stefan2024") {
-                showProfile(
-                    "Стефан", 
-                    "01.01.2024", 
-                    "01.01.2025", 
-                    "Браво за постоянството! Продължаваме по план с акцент върху силовите тренировки тази седмица."
-                );
-            } 
-            else if (code === "client123") {
-                showProfile(
-                    "Иван Иванов", 
-                    "10.02.2024", 
-                    "10.05.2024", 
-                    "Фокусирай се върху техниката при мъртвата тяга и увеличи протеина."
-                );
-            }
-            else if (code !== null) {
+            const userInput = prompt("Въведете вашия код за достъп:");
+            if (!userInput) return;
+
+            const hashedInput = btoa(userInput); // Маскиране
+
+            if (hashedInput === "c3RlZmFuMjAyNA==") { // Парола: stefan2024
+                showProfile("Стефан", "01.01.2024", "01.01.2025", "Продължавай със същия дух! Фокусирай се върху прогресивното натоварване.");
+            } else if (hashedInput === "Y2xpZW50MTIz") { // Парола: client123
+                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Техниката е важна. Намали тежестта, за да усещаш мускула по-добре.");
+            } else {
                 alert("Грешен код!");
             }
         });
@@ -240,84 +157,34 @@
         function showProfile(name, start, end, note) {
             document.getElementById('main-site-content').style.display = 'none';
             document.getElementById('user-profile').style.display = 'block';
-            
             document.getElementById('display-name').innerText = name;
             document.getElementById('start-date').innerText = start;
             document.getElementById('end-date').innerText = end;
             document.getElementById('coach-note').innerText = note;
-            
             window.scrollTo(0,0);
         }
 
-        // --- ЛОГИКА ЗА КАРУСЕЛ ---
-        const carouselSlide = document.querySelector('.carousel-slide');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const carouselDotsContainer = document.querySelector('.carousel-dots');
+        // Карусел Логика
+        const items = document.querySelectorAll('.carousel-item');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        let idx = 0;
 
-        let currentIndex = 0;
-        const totalItems = carouselItems.length;
-
-        // Генериране на индикатори (точки)
-        function generateDots() {
-            carouselDotsContainer.innerHTML = '';
-            for (let i = 0; i < totalItems; i++) {
-                const dot = document.createElement('span');
-                dot.classList.add('dot');
-                if (i === currentIndex) {
-                    dot.classList.add('active');
-                }
-                dot.addEventListener('click', () => {
-                    goToSlide(i);
-                });
-                carouselDotsContainer.appendChild(dot);
-            }
+        function updateCarousel() {
+            items.forEach((item, i) => item.style.display = i === idx ? 'block' : 'none');
+            document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === idx));
         }
 
-        // Показване на текущия слайд
-        function showSlide() {
-            carouselItems.forEach((item, index) => {
-                item.style.display = 'none'; // Скрий всички
-            });
-            carouselItems[currentIndex].style.display = 'block'; // Покажи текущия
-
-            // Актуализирай активната точка
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                dot.classList.remove('active');
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-
-        // Преминаване към конкретен слайд
-        function goToSlide(index) {
-            currentIndex = index;
-            showSlide();
-        }
-
-        // Предишен слайд
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? totalItems - 1 : currentIndex - 1;
-            showSlide();
+        items.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            dot.addEventListener('click', () => { idx = i; updateCarousel(); });
+            dotsContainer.appendChild(dot);
         });
 
-        // Следващ слайд
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
-            showSlide();
-        });
-
-        // Първоначално зареждане
-        generateDots();
-        showSlide();
-
-        // Автоматично превъртане на карусела (по избор)
-        // setInterval(() => {
-        //     currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
-        //     showSlide();
-        // }, 5000); // Сменя снимката на всеки 5 секунди
+        document.querySelector('.next-btn').addEventListener('click', () => { idx = (idx + 1) % items.length; updateCarousel(); });
+        document.querySelector('.prev-btn').addEventListener('click', () => { idx = (idx - 1 + items.length) % items.length; updateCarousel(); });
+        
+        updateCarousel();
     </script>
 </body>
 </html>
