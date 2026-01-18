@@ -19,9 +19,7 @@
             </div>
             <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Начало</a></li>
-                <li><a href="#about">За нас</a></li>
                 <li><a href="#results">Резултати</a></li>
-                <li><a href="#exercises">Упражнения</a></li>
                 <li><a href="#subscriptions">Абонамент</a></li>
                 <li><a href="#contact">Контакти</a></li>
                 <li><a href="javascript:void(0)" class="login-btn" id="login-trigger"><i class="fas fa-user"></i> ВХОД</a></li>
@@ -60,23 +58,47 @@
                 <div class="subscription-card">
                     <h3>1 МЕСЕЦ</h3>
                     <div class="price">360<span>лв</span></div>
+                    <div class="price-eur">~185<span>€</span></div>
                     <ul>
                         <li>Персонален план</li>
                         <li>Хранителен режим</li>
                         <li>24/7 поддръжка</li>
                     </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-month')">Избери План</a>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-month')">Избери</a>
                 </div>
                 <div class="subscription-card featured">
                     <div class="badge">НАЙ-ПОПУЛЯРЕН</div>
                     <h3>3 МЕСЕЦА</h3>
                     <div class="price">970<span>лв</span></div>
+                    <div class="price-eur">~497<span>€</span></div>
                     <ul>
                         <li>Всичко от 1 месец</li>
                         <li>Видео консултации</li>
-                        <li>Проследяване на резултати</li>
+                        <li>Проследяване</li>
                     </ul>
-                    <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери План</a>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('3-months')">Избери</a>
+                </div>
+                <div class="subscription-card">
+                    <h3>6 МЕСЕЦА</h3>
+                    <div class="price">1800<span>лв</span></div>
+                    <div class="price-eur">~923<span>€</span></div>
+                    <ul>
+                        <li>Приоритетна връзка</li>
+                        <li>Корекции по плана</li>
+                        <li>Пълна подкрепа</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('6-months')">Избери</a>
+                </div>
+                <div class="subscription-card">
+                    <h3>1 ГОДИНА</h3>
+                    <div class="price">3200<span>лв</span></div>
+                    <div class="price-eur">~1641<span>€</span></div>
+                    <ul>
+                        <li>Максимални резултати</li>
+                        <li>Личен ментор</li>
+                        <li>Най-добра цена</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn" onclick="selectPlan('1-year')">Избери</a>
                 </div>
             </div>
         </section>
@@ -91,10 +113,12 @@
                 <div class="contact-form-wrapper">
                     <form action="https://formspree.io/f/xykzrzzl" method="POST">
                         <input type="text" name="Име" placeholder="Вашето Име" required>
-                        <input type="email" name="Имейл" placeholder="Вашият Имейл" required>
+                        <input type="email" name="Имейл" placeholder="Имейл" required>
                         <select name="План" id="plan-select">
                             <option value="1-month">1 Месец - 360 лв.</option>
                             <option value="3-months">3 Месеца - 970 лв.</option>
+                            <option value="6-months">6 Месеца - 1800 лв.</option>
+                            <option value="1-year">1 Година - 3200 лв.</option>
                         </select>
                         <button type="submit" class="cta-btn submit-btn">ИЗПРАТИ</button>
                     </form>
@@ -109,49 +133,36 @@
                 <i class="fas fa-user-circle" style="font-size: 70px; color: #ff6600; margin-bottom: 20px;"></i>
                 <h3 style="color: white; font-size: 24px;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
                 <p style="color: #2ecc71; font-weight: bold; margin-bottom: 30px;">АКТИВЕН АБОНАМЕНТ</p>
-
                 <div class="subscription-dates">
-                    <div class="date-box">
-                        <p style="font-size: 11px; color: #666;">НАЧАЛО</p>
-                        <strong id="start-date" style="color: #fff;">--.--.----</strong>
-                    </div>
-                    <div class="date-box">
-                        <p style="font-size: 11px; color: #666;">ВАЛИДЕН ДО</p>
-                        <strong id="end-date" style="color: #ff6600;">--.--.----</strong>
-                    </div>
+                    <div class="date-box"><p>НАЧАЛО</p><strong id="start-date" style="color: #fff;">--.--.----</strong></div>
+                    <div class="date-box"><p>ВАЛИДЕН ДО</p><strong id="end-date" style="color: #ff6600;">--.--.----</strong></div>
                 </div>
-
                 <div class="coach-note-box">
-                    <h4 style="color: #ff6600; font-size: 16px;"><i class="fas fa-comment-dots"></i> Бележка:</h4>
+                    <h4 style="color: #ff6600;"><i class="fas fa-comment-dots"></i> Бележка:</h4>
                     <p id="coach-note" style="color: #ccc; font-style: italic;">Зареждане...</p>
                 </div>
-
                 <button onclick="location.reload()" class="cta-btn" style="background: #333;">ИЗХОД</button>
             </div>
         </div>
     </section>
 
     <script>
-        // Мобилно меню
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         menuBtn.addEventListener('click', () => navList.classList.toggle('active'));
 
-        // Маскиран вход
+        function selectPlan(val) { document.getElementById('plan-select').value = val; }
+
         const loginTrigger = document.getElementById('login-trigger');
         loginTrigger.addEventListener('click', function() {
             const userInput = prompt("Въведете вашия код за достъп:");
             if (!userInput) return;
-
-            const hashedInput = btoa(userInput); // Маскиране
-
-            if (hashedInput === "c3RlZmFuMjAyNA==") { // Парола: stefan2024
+            const hashedInput = btoa(userInput);
+            if (hashedInput === "c3RlZmFuMjAyNA==") { 
                 showProfile("Стефан", "01.01.2024", "01.01.2025", "Продължавай със същия дух! Фокусирай се върху прогресивното натоварване.");
-            } else if (hashedInput === "Y2xpZW50MTIz") { // Парола: client123
-                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Техниката е важна. Намали тежестта, за да усещаш мускула по-добре.");
-            } else {
-                alert("Грешен код!");
-            }
+            } else if (hashedInput === "Y2xpZW50MTIz") {
+                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Техниката е важна. Намали тежестта за по-добра изолация.");
+            } else { alert("Грешен код!"); }
         });
 
         function showProfile(name, start, end, note) {
@@ -164,26 +175,21 @@
             window.scrollTo(0,0);
         }
 
-        // Карусел Логика
         const items = document.querySelectorAll('.carousel-item');
         const dotsContainer = document.querySelector('.carousel-dots');
         let idx = 0;
-
         function updateCarousel() {
             items.forEach((item, i) => item.style.display = i === idx ? 'block' : 'none');
             document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === idx));
         }
-
         items.forEach((_, i) => {
             const dot = document.createElement('span');
             dot.className = 'dot';
             dot.addEventListener('click', () => { idx = i; updateCarousel(); });
             dotsContainer.appendChild(dot);
         });
-
         document.querySelector('.next-btn').addEventListener('click', () => { idx = (idx + 1) % items.length; updateCarousel(); });
         document.querySelector('.prev-btn').addEventListener('click', () => { idx = (idx - 1 + items.length) % items.length; updateCarousel(); });
-        
         updateCarousel();
     </script>
 </body>
