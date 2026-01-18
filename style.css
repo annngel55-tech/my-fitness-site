@@ -193,11 +193,11 @@ input:focus, select:focus { border-color: #ff6600; outline: none; }
 }
 
 /* ============================================================
-   9. ОБНОВЕН КАРУСЕЛ (ПО-МАЛЪК И СЪС СТИЛНИ СТРЕЛКИ)
+   9. ОБНОВЕН КАРУСЕЛ (БЕЗ ТЕКСТ И СЪС СТИЛНИ СТРЕЛКИ)
    ============================================================ */
 .carousel-container {
     position: relative;
-    max-width: 600px; /* Намален размер на карусела */
+    max-width: 600px; /* Намален размер за по-професионален вид */
     margin: 0 auto 50px auto;
     overflow: hidden;
     border-radius: 20px;
@@ -205,21 +205,29 @@ input:focus, select:focus { border-color: #ff6600; outline: none; }
     border: 1px solid #222;
 }
 
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
 .carousel-item {
     min-width: 100%;
-    padding: 15px;
+    padding: 0; /* Махаме вътрешното разстояние */
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-item img {
     width: 100%;
-    max-height: 400px; /* Ограничена височина за по-компактен вид */
-    object-fit: cover;
+    max-height: 450px; 
+    object-fit: contain;
     border-radius: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0; /* Премахва дупката под снимката */
 }
 
-/* СТИЛИЗИРАНИ СТРЕЛКИ (КАТО НА СНИМКАТА) */
+/* СТИЛИЗИРАНИ СТРЕЛКИ */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -228,8 +236,8 @@ input:focus, select:focus { border-color: #ff6600; outline: none; }
     height: 50px;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    border: 2px solid #ff6600; /* Оранжев контур */
-    border-radius: 50%; /* Кръгла форма */
+    border: 2px solid #ff6600; /* Оранжев контур като на снимката */
+    border-radius: 50%; 
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -256,10 +264,10 @@ input:focus, select:focus { border-color: #ff6600; outline: none; }
 /* ТОЧКИ ЗА НАВИГАЦИЯ */
 .carousel-dots {
     text-align: center;
-    margin-top: -25px; /* Качва точките малко по-нагоре върху снимката */
+    margin-top: 15px; /* Разстояние между снимката и точките */
+    padding-bottom: 15px;
     position: relative;
     z-index: 5;
-    padding-bottom: 15px;
 }
 
 .dot {
