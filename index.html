@@ -146,65 +146,63 @@
     </div>
 
     <section id="user-profile" style="display: none; padding-top: 100px; background: #000;">
-        <div class="profile-container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+        <div class="profile-container" style="max-width: 1100px; margin: 0 auto; padding: 20px;">
             <div class="user-card" style="background: #111; padding: 30px; border-radius: 20px; border: 1px solid #222; text-align: center; margin-bottom: 50px;">
-                <i class="fas fa-user-circle" style="font-size: 60px; color: #ff6600; margin-bottom: 15px;"></i>
-                <h3 style="color: white;">Добре дошъл, <span id="display-name" style="color: #ff6600;">Атлет</span>!</h3>
-                
-                <div class="subscription-dates" style="margin-top: 20px;">
+                <h3 style="color: white; margin-bottom: 15px;">Профил на <span id="display-name" style="color: #ff6600;">Атлет</span></h3>
+                <div class="subscription-dates">
                     <div class="date-box"><p>НАЧАЛО</p><strong id="start-date">--.--.----</strong></div>
                     <div class="date-box"><p>ВАЛИДЕН ДО</p><strong id="end-date" style="color: #ff6600;">--.--.----</strong></div>
                 </div>
-
                 <div class="coach-note-box">
-                    <h4 style="color: #ff6600;"><i class="fas fa-comment-dots"></i> Твоите насоки:</h4>
-                    <p id="coach-note" style="color: #ccc;">Зареждане...</p>
+                    <h4 style="color: #ff6600;">Инструкции за седмицата:</h4>
+                    <p id="coach-note" style="color: #ccc; margin-top: 10px;">Зареждане...</p>
                 </div>
-                <button onclick="location.reload()" class="cta-btn" style="background: #333; padding: 10px 25px; font-size: 12px;">ИЗХОД ОТ ПРОФИЛА</button>
+                <button onclick="location.reload()" class="cta-btn" style="background: #333; font-size: 12px; padding: 8px 20px;">ИЗХОД</button>
             </div>
 
-            <div id="exclusive-exercises">
-                <h2 class="section-title">Твоята <span>Библиотека</span></h2>
-                <div class="exercises-grid">
-                    <div class="exercise-card">
-                        <div class="video-placeholder"><i class="fas fa-play-circle"></i></div>
-                        <h4>Гърди - Избутване</h4>
-                        <p>3 серии x 12 повторения</p>
+            <h2 class="section-title">Техника на <span>Изпълнение</span></h2>
+            <div class="exercises-grid">
+                <div class="exercise-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/vthMCtgVtFw" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="exercise-card">
-                        <div class="video-placeholder"><i class="fas fa-play-circle"></i></div>
-                        <h4>Гръб - Тяга</h4>
-                        <p>4 серии x 10 повторения</p>
+                    <h4>Гърди: Избутване с дъмбели</h4>
+                    <p>Фокусирай се върху разтягането в долна фаза.</p>
+                </div>
+                <div class="exercise-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/j_86E9Nio70" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="exercise-card">
-                        <div class="video-placeholder"><i class="fas fa-play-circle"></i></div>
-                        <h4>Крака - Клек</h4>
-                        <p>3 серии x 15 повторения</p>
+                    <h4>Гръб: Гребане с дъмбел</h4>
+                    <p>Дръж гърба прав и дърпай към таза.</p>
+                </div>
+                <div class="exercise-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Xm_66rIn7pU" frameborder="0" allowfullscreen></iframe>
                     </div>
+                    <h4>Крака: Български клек</h4>
+                    <p>Най-доброто за оформяне на крака и глутеус.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // Мобилно меню
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         menuBtn.addEventListener('click', () => navList.classList.toggle('active'));
 
         function selectPlan(val) { document.getElementById('plan-select').value = val; }
 
-        // ЛОГИКА ВХОД
         const loginTrigger = document.getElementById('login-trigger');
         loginTrigger.addEventListener('click', function() {
             const userInput = prompt("Въведете вашия код за достъп:");
             if (!userInput) return;
             const hashedInput = btoa(userInput);
-            
-            if (hashedInput === "c3RlZmFuMjAyNA==") { // stefan2024
-                showProfile("Стефан", "01.01.2024", "01.01.2025", "Фокусирай се върху бавното спускане на тежестта (ексцентрична фаза).");
-            } else if (hashedInput === "Y2xpZW50MTIz") { // client123
-                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Увеличи калориите с 200 на ден.");
+            if (hashedInput === "c3RlZmFuMjAyNA==") { 
+                showProfile("Стефан", "01.01.2024", "01.01.2025", "Тази седмица наблегни на негативната фаза на упражненията.");
+            } else if (hashedInput === "Y2xpZW50MTIz") {
+                showProfile("Иван Иванов", "10.02.2024", "10.05.2024", "Увеличи приема на вода до 4 литра.");
             } else { alert("Грешен код!"); }
         });
 
@@ -218,7 +216,6 @@
             window.scrollTo(0,0);
         }
 
-        // КАРУСЕЛ
         const items = document.querySelectorAll('.carousel-item');
         const dotsContainer = document.querySelector('.carousel-dots');
         let idx = 0;
